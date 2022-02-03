@@ -26,6 +26,12 @@ stages:
         version: '$(dotnetSdkVersion)'
 
     - task: Npm@1
+      displayName: 'Clean npm cache'
+      inputs:
+        command: 'custom'
+        customCommand: 'cache clean —force'
+
+    - task: Npm@1
       displayName: 'Run npm install'
       inputs:
         verbose: false
